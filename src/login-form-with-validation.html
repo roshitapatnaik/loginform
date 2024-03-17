@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Login Form</title>
+  <style>
+    .error-message {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-md-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Login</h2>
+            <form id="login-form">
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+                <div id="username-error" class="error-message"></div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                <div id="password-error" class="error-message"></div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" onclick="validateForm(event)">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); // Prevent form submission
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      var usernameError = document.getElementById('username-error');
+      var passwordError = document.getElementById('password-error');
+      
+      // Basic validation
+      if (username === "") {
+        usernameError.textContent = "Username is required";
+      } else {
+        usernameError.textContent = "";
+      }
+
+      if (password === "") {
+        passwordError.textContent = "Password is required";
+      } else {
+        passwordError.textContent = "";
+      }
+
+      // Additional validation logic can be added here
+      // For example, checking username and password against a database or API
+
+      // If all validation passes, you can proceed with form submission or other actions
+    }
+  </script>
+</body>
+</html>
